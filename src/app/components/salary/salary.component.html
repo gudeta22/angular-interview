@@ -1,0 +1,19 @@
+<h2>Salary Management</h2>
+<table mat-table [dataSource]="salaries" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let salary"> {{salary.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="candidateId">
+    <th mat-header-cell *matHeaderCellDef> Candidate ID </th>
+    <td mat-cell *matCellDef="let salary"> {{salary.candidateId}} </td>
+  </ng-container>
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef> Amount </th>
+    <td mat-cell *matCellDef="let salary"> {{salary.amount}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['id', 'candidateId', 'amount']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'candidateId', 'amount']"></tr>
+</table>
+
+<button mat-raised-button (click)="addSalary(1, 5000)">Add Salary</button>

@@ -1,0 +1,19 @@
+<h2>Candidate Management</h2>
+<table mat-table [dataSource]="candidates" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let candidate"> {{candidate.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let candidate"> {{candidate.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="departmentId">
+    <th mat-header-cell *matHeaderCellDef> Department ID </th>
+    <td mat-cell *matCellDef="let candidate"> {{candidate.departmentId}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['id', 'name', 'departmentId']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'departmentId']"></tr>
+</table>
+
+<button mat-raised-button (click)="addCandidate('New Candidate', 1)">Add Candidate</button>
